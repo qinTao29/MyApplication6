@@ -76,14 +76,21 @@ public class MainActivity extends AppCompatActivity {
     }
     private void processData(String json){
         JsonBean jsonBean= JSON.parseObject(json,JsonBean.class);
+        //当天天气情况
         String cityNmae=jsonBean.getResult().getCity();
-        Log.d("tt","城市名:"+cityNmae);
+        Log.d("tt","城市名："+cityNmae);
         String citytemperature=jsonBean.getResult().getRealtime().getTemperature();
-        Log.d("cc","最低温度："+citytemperature+"℃");
+        Log.d("cc","温度："+citytemperature+"℃");
         String cityhumidity=jsonBean.getResult().getRealtime().getHumidity();
-        Log.d("cx","最高温度："+cityhumidity+"℃");
+        Log.d("cx","湿度："+cityhumidity);
         String cityinfo=jsonBean.getResult().getRealtime().getInfo();
-        Log.d("tx","今天天气情况为："+cityinfo);
+        Log.d("tx","天气情况："+cityinfo);
+        String citydirect=jsonBean.getResult().getRealtime().getDirect();
+        Log.d("fx","风向："+citydirect);
+        String citypower=jsonBean.getResult().getRealtime().getPower();
+        Log.d("fs","风速："+citypower);
+        //未来天气情况
+
 
     }
 }
