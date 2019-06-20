@@ -1,10 +1,12 @@
 package cn.edu.gdpt.myapplication;
 
 
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +34,13 @@ public class MainActivity extends AppCompatActivity {
         power_tv = findViewById(R.id.power_tv);
         search_tv = findViewById(R.id.search_tv);
         future_listview = findViewById(R.id.weather_listview);
-
+        search_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
     }
 
 }
