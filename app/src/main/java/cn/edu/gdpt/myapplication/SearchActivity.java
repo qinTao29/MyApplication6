@@ -2,6 +2,7 @@ package cn.edu.gdpt.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +20,11 @@ private Button searchBtn;
         city_name_edit=(EditText)findViewById(R.id.city_name_edit);
         searchBtn=(Button)findViewById(R.id.search_btn);
         //返回
-
+        back_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }
