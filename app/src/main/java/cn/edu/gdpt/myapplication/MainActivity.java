@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
-    }
+        futuresList = new ArrayList<>();
+        weatherAdapter = new WeatherAdapter(this, futuresList);
+        future_listview.setAdapter(weatherAdapter);
 
+        getLocation();
+        getWeather();
+    }
+    private void getWeather() {
+
+    }
+    private void getLocation(){
+
+    }
 }
