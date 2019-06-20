@@ -9,10 +9,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.spark.submitbutton.SubmitButton;
+
 public class SearchActivity extends AppCompatActivity {
 private TextView back_tv;
 private EditText city_name_edit;
-private Button searchBtn;
+//private Button searchBtn;
+private SubmitButton searchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +23,8 @@ private Button searchBtn;
         setContentView(R.layout.activity_search);
         back_tv=(TextView)findViewById(R.id.back_tv);
         city_name_edit=(EditText)findViewById(R.id.city_name_edit);
-        searchBtn=(Button)findViewById(R.id.search_btn);
+       // searchBtn=(Button)findViewById(R.id.search_btn);
+        searchBtn=(SubmitButton)findViewById(R.id.search_btn);
         //返回
         back_tv.setOnClickListener(new View.OnClickListener() {
             @Override
