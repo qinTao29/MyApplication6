@@ -2,8 +2,10 @@ package cn.edu.gdpt.myapplication;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,10 +13,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.song.refresh_view.PullToRefreshView;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -34,11 +39,24 @@ public class MainActivity extends AppCompatActivity {
     private String cityName = "深圳";
     private LocationManager locationManager;
     private Location location;
-
+    private PullToRefreshView refreshView;
+    //private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //下拉刷新
+        refreshView =findViewById(R.id.refreshView);
+        refreshView.setColorSchemeColors(Color.RED,Color.BLUE);
+        refreshView.setSmileStrokeWidth(8);
+        refreshView.setSmileInterpolator(new LinearInterpolator());
+        refreshView.setSmileAnimationDuration(3000);
+        refreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                requestData();
+            }
+        });
         city_tv = findViewById(R.id.city_tv);
         info_tv = findViewById(R.id.info_tv);
         temperature_tv = findViewById(R.id.temperature_tv);
@@ -61,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
         getLocation();
         getWeather();
     }
+
+    private void requestData() {
+        refreshView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                weatherAdapter.notifyDataSetChanged();
+                Toast.makeText(MainActivity.this,"刷新成功",Toast.LENGTH_SHORT).show();
+                refreshView.setRefreshing(false);
+            }
+        },3000);
+    }
+
     //网络请求，获取天气预报
     private void getWeather() {
         //创建okHttpClient对象

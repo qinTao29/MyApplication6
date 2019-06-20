@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -74,11 +75,15 @@
         android:layout_height="40dp"
         android:gravity="center"
         android:text="风速" />
+<com.song.refresh_view.PullToRefreshView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/refreshView">
     <ListView
         android:id="@+id/weather_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
         android:scrollbars="none"></ListView>
-
+</com.song.refresh_view.PullToRefreshView>
 </LinearLayout>
