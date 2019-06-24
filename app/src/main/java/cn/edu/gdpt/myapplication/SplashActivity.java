@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
+//引导页
 public class SplashActivity extends AppCompatActivity {
 
     @Override

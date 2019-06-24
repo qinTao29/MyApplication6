@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-
+//ListView适配器
 public class WeatherAdapter extends BaseAdapter {
     private List<WeatherResul.WeatherFuture> list;
     private Context context;

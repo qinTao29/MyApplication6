@@ -1,5 +1,5 @@
 package cn.edu.gdpt.myapplication;
-//
+//经纬位置数据解析
 public class LocationResponse {
     private String resultcode;
     private String reason;

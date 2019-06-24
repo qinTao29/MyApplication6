@@ -14,11 +14,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 import com.song.refresh_view.PullToRefreshView;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         refreshView.setColorSchemeColors(Color.RED,Color.BLUE); // 颜色
         refreshView.setSmileStrokeWidth(8);// 设置绘制的笑脸的宽度
         refreshView.setSmileInterpolator(new LinearInterpolator());// 笑脸动画转动的插值器
-        refreshView.setSmileAnimationDuration(3000); // 设置笑脸旋转动画的时长
+        refreshView.setSmileAnimationDuration(2000); // 设置笑脸旋转动画的时长
         refreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -58,7 +62,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });//设置下拉刷新监听
 
+        //悬浮按钮
+        ImageView icon = new ImageView(this);
+        ImageView icon2=new ImageView(this);// Create an icon
+        icon.setImageDrawable(getResources().getDrawable(R.drawable.timg2));
+        icon2.setImageDrawable(getResources().getDrawable(R.drawable.timg2));
+        FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
+                .setContentView(icon)
+                .build();
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+        // repeat many times:
 
+        ImageView itemIcon = new ImageView(this);
+        ImageView itemIcon2=new ImageView(this);
+        itemIcon2.setImageDrawable(getResources().getDrawable(R.drawable.timg5));
+        itemIcon.setImageDrawable(getResources().getDrawable(R.drawable.timg4));
+        SubActionButton button1 = itemBuilder.setContentView(itemIcon).build();
+        SubActionButton button2 = itemBuilder.setContentView(itemIcon2).build();
+        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
+                .addSubActionView(button1)
+                .addSubActionView(button2)
+                // ...
+                .attachTo(actionButton)
+                .build();
+        //设置悬浮按钮监听
+        itemIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+        itemIcon2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
         city_tv = findViewById(R.id.city_tv);
         info_tv = findViewById(R.id.info_tv);
         temperature_tv = findViewById(R.id.temperature_tv);
@@ -90,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"刷新成功",Toast.LENGTH_SHORT).show();
                 refreshView.setRefreshing(false);// 请求数据完成
             }
-        },3000);
+        },2000);
     }
 
     //网络请求，获取天气预报
