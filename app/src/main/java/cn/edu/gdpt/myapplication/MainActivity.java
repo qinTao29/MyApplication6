@@ -47,16 +47,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //下拉刷新
         refreshView =findViewById(R.id.refreshView);
-        refreshView.setColorSchemeColors(Color.RED,Color.BLUE);
-        refreshView.setSmileStrokeWidth(8);
-        refreshView.setSmileInterpolator(new LinearInterpolator());
-        refreshView.setSmileAnimationDuration(3000);
+        refreshView.setColorSchemeColors(Color.RED,Color.BLUE); // 颜色
+        refreshView.setSmileStrokeWidth(8);// 设置绘制的笑脸的宽度
+        refreshView.setSmileInterpolator(new LinearInterpolator());// 笑脸动画转动的插值器
+        refreshView.setSmileAnimationDuration(3000); // 设置笑脸旋转动画的时长
         refreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 requestData();
             }
-        });
+        });//设置下拉刷新监听
+
+
         city_tv = findViewById(R.id.city_tv);
         info_tv = findViewById(R.id.info_tv);
         temperature_tv = findViewById(R.id.temperature_tv);
@@ -84,24 +86,25 @@ public class MainActivity extends AppCompatActivity {
         refreshView.postDelayed(new Runnable() {
             @Override
             public void run() {
-                weatherAdapter.notifyDataSetChanged();
+                weatherAdapter.notifyDataSetChanged();//实现刷新效果
                 Toast.makeText(MainActivity.this,"刷新成功",Toast.LENGTH_SHORT).show();
-                refreshView.setRefreshing(false);
+                refreshView.setRefreshing(false);// 请求数据完成
             }
         },3000);
     }
 
     //网络请求，获取天气预报
     private void getWeather() {
-        //创建okHttpClient对象
+        //创建okHttpClient对象，封装好网络请求的数据，第三方框架：固定传参和回参的写法
         OkHttpClient mOkHttpClient = new OkHttpClient();
         //创建一个Request
         FormEncodingBuilder builder = new FormEncodingBuilder();
+        //这里是放置需要传给服务器的参数
         if (cityName != null) {
             builder.add("city", cityName);
         }
         builder.add("key", "946191298dbf4c92ac1f93293376990b");
-
+        //这里是把url和参数封装
         Request request = new Request.Builder()
                 .url("http://apis.juhe.cn/simpleWeather/query")
                 .post(builder.build())
@@ -113,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
+            //这个地方是网络回调，也就是服务器传回给你的东西，是一个json字符串
+            //这边传参数给服务器也是用的json字符串
+            //然后收到网络回调给你的json之后，用的是Gson进行解析的
+            //解析完成之后，把得到的值显示在界面上就完了
             public void onResponse(final Response response) throws IOException {
                 try {
                     final String result = response.body().string();

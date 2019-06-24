@@ -1,5 +1,5 @@
 package cn.edu.gdpt.myapplication;
-
+//
 public class LocationResponse {
     private String resultcode;
     private String reason;
