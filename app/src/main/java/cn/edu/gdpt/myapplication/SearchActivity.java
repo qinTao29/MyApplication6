@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sdsmdg.tastytoast.TastyToast;
 import com.spark.submitbutton.SubmitButton;
 
 public class SearchActivity extends AppCompatActivity {
@@ -37,7 +38,7 @@ private SubmitButton searchBtn;
             public void onClick(View view) {
                 String name = city_name_edit.getText().toString().trim();
                 if (name.isEmpty()) {
-                    Toast.makeText(SearchActivity.this, "城市不能为空", Toast.LENGTH_SHORT).show();
+                    TastyToast.makeText(SearchActivity.this, "城市不能为空", TastyToast.LENGTH_SHORT,TastyToast.ERROR).show();
                     return;
                 }
                 Intent intent = new Intent();

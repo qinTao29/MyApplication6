@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+import com.sdsmdg.tastytoast.TastyToast;
 import com.song.refresh_view.PullToRefreshView;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 weatherAdapter.notifyDataSetChanged();//实现刷新效果
-                Toast.makeText(MainActivity.this,"刷新成功",Toast.LENGTH_SHORT).show();
+                TastyToast.makeText(MainActivity.this,"刷新成功",TastyToast.LENGTH_SHORT,TastyToast.SUCCESS).show();
                 refreshView.setRefreshing(false);// 请求数据完成
             }
         },2000);
