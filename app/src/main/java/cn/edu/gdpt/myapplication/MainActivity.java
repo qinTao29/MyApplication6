@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.hanks.htextview.rainbow.RainbowTextView;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
@@ -37,7 +38,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private TextView city_tv, info_tv, temperature_tv, search_tv,humidity_tv,direct_tv,power_tv;
+    private RainbowTextView city_tv, info_tv, temperature_tv, search_tv,humidity_tv,direct_tv,power_tv;
     private ListView future_listview;
     private WeatherAdapter weatherAdapter;
     private List<WeatherResul.WeatherFuture> futuresList;

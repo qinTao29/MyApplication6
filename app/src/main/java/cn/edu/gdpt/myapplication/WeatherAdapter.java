@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.hanks.htextview.rainbow.RainbowTextView;
+
 import java.util.List;
 //ListView适配器
 public class WeatherAdapter extends BaseAdapter {
@@ -42,10 +44,10 @@ public class WeatherAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.list_item_view, null);
-        TextView textview1 = (TextView) view.findViewById(R.id.textView1);
-        TextView textview2 = (TextView) view.findViewById(R.id.textView2);
-        TextView textview3 = (TextView) view.findViewById(R.id.textView3);
-        TextView textview4 = (TextView) view.findViewById(R.id.textView4);
+        TextView textview1 = (RainbowTextView) view.findViewById(R.id.textView1);
+        TextView textview2 = (RainbowTextView) view.findViewById(R.id.textView2);
+        TextView textview3 = (RainbowTextView) view.findViewById(R.id.textView3);
+        TextView textview4 = (RainbowTextView) view.findViewById(R.id.textView4);
 
         WeatherResul.WeatherFuture weatherFuture = list.get(i);
         textview1.setText(weatherFuture.getDate());

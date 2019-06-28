@@ -5,42 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CalendarActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/animation_list"
         android:orientation="vertical"
-        android:background="@drawable/animation_list">
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_back"
+            <com.hanks.htextview.rainbow.RainbowTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="0dp"
+                android:id="@+id/tv_back"
                 android:text="返回"
-                android:textSize="25dp" />
+                android:textSize="20dp"/>
+            <!--<TextView-->
+                <!--android:id="@+id/tv_back"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="2dp"-->
+                <!--android:layout_marginTop="0dp"-->
+                <!--android:text="返回"-->
+                <!--android:textSize="25dp" />-->
 
-            <TextView
-                android:id="@+id/textView3"
+            <com.hanks.htextview.rainbow.RainbowTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="148dp"
-                android:layout_marginTop="0dp"
                 android:layout_marginEnd="116dp"
+                android:gravity="right"
                 android:text="日历"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
+            <!--<TextView-->
+            <!--android:id="@+id/textView3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="148dp"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:layout_marginEnd="116dp"-->
+            <!--android:text="日历"-->
+            <!--android:textSize="25dp" />-->
         </LinearLayout>
 
         <android:com.squareup.timessquare.CalendarPickerView
-            android:id = "@+id/calendar_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/calendar_view"
             layout_height="1dp"
-            layout_width="1dp" />
+            layout_width="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

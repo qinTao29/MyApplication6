@@ -13,7 +13,7 @@
         android:layout_height="56dp"
         android:background="@color/colorBule">
 
-        <TextView
+        <com.hanks.htextview.rainbow.RainbowTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -21,7 +21,7 @@
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
-        <TextView
+        <com.hanks.htextview.rainbow.RainbowTextView
             android:id="@+id/search_tv"
             android:layout_width="80dp"
             android:layout_height="match_parent"
@@ -34,7 +34,7 @@
 
     </RelativeLayout>
 
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/city_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -43,34 +43,34 @@
         android:text="城市名称"
         android:textSize="24sp" />
 
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/info_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:text="天气信息" />
 
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/temperature_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:text="温度" />
 
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/humidity_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:text="湿度" />
 
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/direct_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:text="风向" />
-    <TextView
+    <com.hanks.htextview.rainbow.RainbowTextView
         android:id="@+id/power_tv"
         android:layout_width="match_parent"
         android:layout_height="40dp"

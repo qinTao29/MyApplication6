@@ -12,7 +12,7 @@
         android:layout_height="56dp"
         android:background="@color/colorBule">
 
-        <TextView
+        <com.hanks.htextview.rainbow.RainbowTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -20,7 +20,7 @@
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
-        <TextView
+        <com.hanks.htextview.rainbow.RainbowTextView
             android:id="@+id/back_tv"
             android:layout_width="80dp"
             android:layout_height="match_parent"
@@ -71,4 +71,5 @@
         app:sub_btn_background="@color/white"
         app:sub_btn_duration="3000"
         app:sub_btn_tick_color="@color/white" />
+
 </LinearLayout>

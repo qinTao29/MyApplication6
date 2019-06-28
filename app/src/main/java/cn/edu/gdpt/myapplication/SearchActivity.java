@@ -9,11 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hanks.htextview.rainbow.RainbowTextView;
 import com.sdsmdg.tastytoast.TastyToast;
 import com.spark.submitbutton.SubmitButton;
 
 public class SearchActivity extends AppCompatActivity {
-private TextView back_tv;
+private RainbowTextView back_tv;
 private EditText city_name_edit;
 //private Button searchBtn;
 private SubmitButton searchBtn;
@@ -22,7 +23,7 @@ private SubmitButton searchBtn;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        back_tv=(TextView)findViewById(R.id.back_tv);
+        back_tv=(RainbowTextView) findViewById(R.id.back_tv);
         city_name_edit=(EditText)findViewById(R.id.city_name_edit);
        // searchBtn=(Button)findViewById(R.id.search_btn);
         searchBtn=(SubmitButton)findViewById(R.id.search_btn);
